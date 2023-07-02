@@ -12,13 +12,5 @@ this.name = name;
  
   };
 }
-var a1 = new Animatronic('a1',20,0);
-setInterval(function(){
-a1.update();
-},1000);
-function flash(){
-if(a1.state = 5){
-a1.state = 0;
-p.textContent = "flashed";
-}
-};
+
+
