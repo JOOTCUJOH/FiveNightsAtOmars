@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv='x-ua-compatible' content='ie=edge'/>
+<style> 
+body{
+margin:0;
+width:100%;
+height:100%;
+overflow:hidden;
+} 
+#game{
+cursor:none}
+img{
+position:absolute;
+left:0px;
+z-index:auto;
+width:100%;
+height:100%;
+}
+canvas{
+position:absolute;
+left:0px;
+border-color:black;
+}
+.bar{
+    position:fixed;
+    background-color: black;
+    width:20%;
+    height:100%;
+}
+#baro{
+    top:0px;
+    left:0px;
+}
+#bart{
+    top:0px;
+    right:0px;
+}
+</style>
+</head>
+<body>
+<div id = "game">
+<img src = 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/abfdcfef-37a8-4791-a48a-ab3f77d3f63c/decfi1l-1fd131b0-0f76-44e9-8bbc-8642198542f9.png/v1/fill/w_1280,h_752,q_80,strp/fnaf_4_bedroom_by_jiolns_decfi1l-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NzUyIiwicGF0aCI6IlwvZlwvYWJmZGNmZWYtMzdhOC00NzkxLWE0OGEtYWIzZjc3ZDNmNjNjXC9kZWNmaTFsLTFmZDEzMWIwLTBmNzYtNDRlOS04YmJjLTg2NDIxOTg1NDJmOS5wbmciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.uTggNUHig9eFjWp5tkYJ0dTnvdLicvlJaMmt2s_khaA'>
+<canvas id="myCanvas" >
+Your browser does not support the canvas element.
+</canvas>
+
+</div>
+
+<div id = "baro" class = "bar">f</div>
+<div id = "bart" class = "bar">f</div>
+<script>
+
+var canvas = document.getElementById("myCanvas");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+var img = document.getElementsByTagName(img)[0];
+var ctx = canvas.getContext("2d");
+ctx.fillStyle = "#000000";
+ctx.fillRect(0,0,400,400);
+ctx.globalCompositeOperation = "xor";
+ctx.fillStyle = "#FF0001";
+ctx.beginPath();
+ctx.arc(200, 200, 70, 0, 2 * Math.PI);
+ctx.fill(); 
+
+canvas.addEventListener('mousemove',function (event){ ctx.clearRect(0,0,canvas.width,canvas.height);
+ctx.fillStyle = "#000108";
+ctx.fillRect(0,0,window.innerWidth,window.innerHeight);
+ctx.globalCompositeOperation = "xor";
+ctx.strokeStyle ='red';
+ctx.lineWidth = 30;
+ctx.beginPath();
+ ctx.arc(event.offsetX, event.offsetY, 70, 0, 2 * Math.PI);
+ctx.strokeStyle = 'rgba(0,0,0,0.5)';
+ctx.stroke();
+ctx.fill();
+ctx.fillStyle = 'rgba(0, 0, 0,0)'
+ ctx.lineWidth = 3;
+ ctx.beginPath();
+ 
+ ctx.arc(event.offsetX, event.offsetY, 35, 0, 2 * Math.PI);
+ 
+ ctx.strokeStyle = 'rgba(0,0,0,0.3)';
+
+ctx.stroke();
+ ctx.fill();
+ ctx.fillStyle = 'rgba(0, 0, 0,0)'
+ ctx.lineWidth = 3;
+ ctx.beginPath();
+ 
+ ctx.arc(event.offsetX, event.offsetY, 30, 0, 2 * Math.PI);
+ 
+ ctx.strokeStyle = 'rgba(0,0,0,0.3)';
+
+ctx.stroke();
+ ctx.fill(); 
+
+});
+canvas.addEventListener(keydown,function(){
+    console.log("HIHIHI")
+})
+</script>
+
+</body>
+</html> 
+
