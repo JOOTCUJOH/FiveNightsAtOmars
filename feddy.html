@@ -50,8 +50,10 @@ Your browser does not support the canvas element.
 
 <div id = "baro" class = "bar">f</div>
 <div id = "bart" class = "bar">f</div>
+<script src = "Ai.js"></script>
 <script>
-
+var omr = new Animatronic("0mar",20,0);
+window.setInterval(function(){omr.update();},5000)
 var canvas = document.getElementById("myCanvas");
 
 canvas.width = window.innerWidth;
@@ -59,47 +61,42 @@ canvas.height = window.innerHeight;
 var img = document.getElementsByTagName(img)[0];
 var ctx = canvas.getContext("2d");
 ctx.fillStyle = "#000000";
-ctx.fillRect(0,0,400,400);
-ctx.globalCompositeOperation = "xor";
-ctx.fillStyle = "#FF0001";
-ctx.beginPath();
-ctx.arc(200, 200, 70, 0, 2 * Math.PI);
-ctx.fill(); 
+ctx.fillRect(0,0,canvas.width,canvas.height);
+canvas.addEventListener('mousemove',function (event){ 
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    ctx.fillStyle = "#000108";
+    ctx.fillRect(0,0,window.innerWidth,window.innerHeight);
+    ctx.globalCompositeOperation = "xor";
+    ctx.strokeStyle ='red';
+    ctx.lineWidth = 30;
+    ctx.beginPath();
+    ctx.arc(event.offsetX, event.offsetY, 70, 0, 2 * Math.PI);
+    ctx.strokeStyle = 'rgba(0,0,0,0.5)';
+    ctx.stroke();
+    ctx.fill();
+    ctx.fillStyle = 'rgba(0, 0, 0,0)'
+    ctx.lineWidth = 3;
+    ctx.beginPath();
+    
+    ctx.arc(event.offsetX, event.offsetY, 35, 0, 2 * Math.PI);
+    
+    ctx.strokeStyle = 'rgba(0,0,0,0.3)';
 
-canvas.addEventListener('mousemove',function (event){ ctx.clearRect(0,0,canvas.width,canvas.height);
-ctx.fillStyle = "#000108";
-ctx.fillRect(0,0,window.innerWidth,window.innerHeight);
-ctx.globalCompositeOperation = "xor";
-ctx.strokeStyle ='red';
-ctx.lineWidth = 30;
-ctx.beginPath();
- ctx.arc(event.offsetX, event.offsetY, 70, 0, 2 * Math.PI);
-ctx.strokeStyle = 'rgba(0,0,0,0.5)';
-ctx.stroke();
-ctx.fill();
-ctx.fillStyle = 'rgba(0, 0, 0,0)'
- ctx.lineWidth = 3;
- ctx.beginPath();
- 
- ctx.arc(event.offsetX, event.offsetY, 35, 0, 2 * Math.PI);
- 
- ctx.strokeStyle = 'rgba(0,0,0,0.3)';
+    ctx.stroke();
+    ctx.fill();
+    ctx.fillStyle = 'rgba(0, 0, 0,0)'
+    ctx.lineWidth = 3;
+    ctx.beginPath();
+    
+    ctx.arc(event.offsetX, event.offsetY, 30, 0, 2 * Math.PI);
+    
+    ctx.strokeStyle = 'rgba(0,0,0,0.3)';
 
-ctx.stroke();
- ctx.fill();
- ctx.fillStyle = 'rgba(0, 0, 0,0)'
- ctx.lineWidth = 3;
- ctx.beginPath();
- 
- ctx.arc(event.offsetX, event.offsetY, 30, 0, 2 * Math.PI);
- 
- ctx.strokeStyle = 'rgba(0,0,0,0.3)';
-
-ctx.stroke();
- ctx.fill(); 
+    ctx.stroke();
+    ctx.fill(); 
 
 });
-canvas.addEventListener(keydown,function(){
+canvas.addEventListener('keydown',function(){
     console.log("HIHIHI")
 })
 </script>
